@@ -41,9 +41,7 @@ pipeline {
 
         stage('4721960K-S1') {
             steps {
-                 sh """
                     echo "4721960K-S1: Release environment is ready."
-                    """
             }
         }
 
