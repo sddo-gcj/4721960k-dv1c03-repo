@@ -54,8 +54,7 @@ pipeline {
 		stage('4721960K-S3') {
             steps {
                 sh """
-                  docker stop 4721960k-web-server
-                  docker rm 4721960-web-server
+docker top 4721960k-web-server || docker run -d -it -p 8080:32700 --name 4721960k-web-server temp-server-image /bin/sh -c "'Created';sleep infinity"
                 """
 		        echo "4721960K-S3: Web Server is setup and running"
 		    }
