@@ -72,7 +72,14 @@ pipeline {
 				   }
 		       }
 		    }
-		
+
+        stage('4721960K-S5') {
+            steps {
+    	       input '4721960K, after checking security reports, continue the pipeline?'   
+               echo "4721960K-S5: Approve to continue the pipeline"
+            }
+        }
+
         stage('4721960K-S6') {
             steps {
     	          echo "4721960K-S6: Getting ready for next phase"
