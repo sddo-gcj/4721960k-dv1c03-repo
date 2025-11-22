@@ -45,11 +45,37 @@ pipeline {
             }
         }
 
-        stage('Printing All Global Variables') {
+        stage('4721960K-S2') {
             steps {
-                sh """
-                env
-                """
+		        echo "4721960K-S2: Release Windows checked - Continue the pipeline"
+		    }
+        }
+
+		stage('4721960K-S3') {
+            steps {
+		        echo "4721960K-S3: Web Server is setup and running"
+		    }
+        }
+
+        stage('4721960K-parallel-S4'){
+		       parallel {
+			         stage('4721960K-parallel-S4A') {
+		               steps {
+           	               echo "4721960K-S4A: SQL Injection (SQLi) Test – Report Generated"
+					         }
+		           }
+				
+				      stage('4721960K-parallel-S4B') {
+	                    steps {
+        	                echo "4721960K-S4B: Cross-Site Scripting (XSS) Test – Report Generated"
+			                  }
+				   }
+		       }
+		    }
+		
+        stage('4721960K-S6') {
+            steps {
+    	          echo "4721960K-S6: Getting ready for next phase"
             }
         }
 
