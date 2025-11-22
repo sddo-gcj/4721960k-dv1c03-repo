@@ -54,7 +54,8 @@ pipeline {
 		stage('4721960K-S3') {
             steps {
                 sh """
-                  hostname
+                  docker stop 4721960k-web-server
+                  docker rm 4721960-web-server
                 """
 		        echo "4721960K-S3: Web Server is setup and running"
 		    }
