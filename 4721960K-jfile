@@ -39,9 +39,11 @@ pipeline {
             }
         }
 
-        stage('Code Build') {
+        stage('4721960K-S1') {
             steps {
-                 sh 'echo Code Build'
+                 sh """
+                    echo "4721960K-S1: Release environment is ready."
+                    """
             }
         }
 
