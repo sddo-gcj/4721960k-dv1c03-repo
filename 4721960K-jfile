@@ -54,10 +54,9 @@ pipeline {
 		stage('4721960K-S3') {
             steps {
                script {
-                  def exists = sh(
-                      script: "docker inspect 4721960k-temp-server",returnStatus: true).trim()
+                  def exists = sh(script: "docker inspect 4721960k-temp-server",returnStatus: true)
 
-                  if (exists == "0") {
+                  if (exists == 0) {
                       echo "Container exists"
                   } else {
                       echo "Container does not exist"
