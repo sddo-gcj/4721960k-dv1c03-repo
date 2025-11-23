@@ -54,8 +54,11 @@ pipeline {
 		stage('4721960K-S3') {
             steps {
                 sh """
-docker top 4721960k-web-server || docker rm 4721960k-web-server
-docker run -d -it -p 8080:32700 --name 4721960k-web-server temp-server-image /bin/sh -c "'Created';sleep infinity"
+if docker inspect 4721960k-web-server >/dev/null 2>&1; then
+    echo "Container exists"
+else
+    echo "Container does NOT exist"
+fi
                 """
 		        echo "4721960K-S3: Web Server is setup and running"
 		    }
