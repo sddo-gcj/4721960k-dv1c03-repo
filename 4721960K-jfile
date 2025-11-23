@@ -53,12 +53,17 @@ pipeline {
 
 		stage('4721960K-S3') {
             steps {
-            if docker inspect 4721960k-web-server >/dev/null 2>&1; then
-                 echo "Container exists"
-            else
-                 echo "Container does NOT exist"
-            fi
-		    echo "4721960K-S3: Web Server is setup and running"
+               def exists = sh(
+                  script: "docker inspect mycontainer >/dev/null 2>&1 ; echo \$?",
+                  returnStdout: true).trim()
+
+               if (exists == "0") {
+                  echo "Container exists"
+                } else {
+                  echo "Container does not exist"
+                }
+
+		        echo "4721960K-S3: Web Server is setup and running"
 		    }
         }
 
