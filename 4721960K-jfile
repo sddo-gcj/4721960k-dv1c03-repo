@@ -55,8 +55,7 @@ pipeline {
             steps {
                script {
                   def exists = sh(
-                      script: "docker inspect 4721960k-temp-server >/dev/null 2>&1 ; echo \$?",
-                      returnStdout: true).trim()
+                      script: "docker inspect 4721960k-temp-server",returnStatus: true).trim()
 
                   if (exists == "0") {
                       echo "Container exists"
