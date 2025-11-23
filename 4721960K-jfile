@@ -57,7 +57,7 @@ pipeline {
                   def exists = sh(script: "docker inspect 4721960k-web-server",returnStatus: true)
 
                   if (exists == 0) {
-                      echo "Container exists"
+                      docker rm -f 4721960k-web-server
                   } else {
                       echo "Container does not exist"
                   }
