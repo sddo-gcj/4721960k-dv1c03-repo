@@ -58,7 +58,7 @@ pipeline {
 
                   if (exists == 0) {
                       sh """
-                         docker stop 4721960k-web-server
+                         docker rm -f 4721960k-web-server
                        """
                   } else {
                       echo "Container does not exist"
