@@ -54,7 +54,7 @@ pipeline {
 		stage('4721960K-S3') {
             steps {
                script {
-                  def exists = sh(script: "docker inspect 4721960k-web-server",returnStatus: true)
+                  def exists = sh(script: "docker inspect 4721960k-web-server> /dev/null",returnStatus: true)
 
                   if (exists == 0) {
                       sh """
