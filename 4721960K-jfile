@@ -2,7 +2,7 @@ pipeline {
 
     agent any
 
-    parameters {string(name: "IP_ADDR", defaultValue:'',description:''}
+    parameters {string(name: 'IP_ADDR', defaultValue:'',description:'')}
     tools { 
         maven 'maven3' 
     }
