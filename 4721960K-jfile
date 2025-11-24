@@ -71,7 +71,8 @@ pipeline {
 
 		          echo "4721960K-S3: Web Server is setup and running"
                  
-                  echo "IP Address : ${ipaddr} , Exposed ports : ${portsexp}" 
+                  echo "IP Address : ${ipaddr}"
+                  echo "Exposed ports : ${portsexp}" 
 
                 }
 
