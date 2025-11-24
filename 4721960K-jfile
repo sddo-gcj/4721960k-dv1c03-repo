@@ -68,10 +68,12 @@ pipeline {
 
                   def ipaddr = sh(script: "docker exec 4721960k-web-server hostname -i",returnStdout: true)
 
+		          echo "4721960K-S3: Web Server is setup and running"
+
                   echo "IP Address : ${ipaddr}" 
 
                 }
-		        echo "4721960K-S3: Web Server is setup and running"
+
 		    }
         }
 
