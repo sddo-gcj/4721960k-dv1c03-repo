@@ -63,7 +63,7 @@ pipeline {
                   } 
                   sh """
                     docker run -d -it -p 8080:32700 --name 4721960k-web-server 4721960k-temp-server-image /bin/sh -c "'Created';sleep infinity"
-                    docker exec -it 4721960k-web-server /bin/bash -c "service apache2 start"
+                    docker exec -it 4721960k-web-server /bin/bash -c 'service apache2 start'
                   """
                 }
 		        echo "4721960K-S3: Web Server is setup and running"
