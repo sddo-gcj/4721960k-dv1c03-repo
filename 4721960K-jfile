@@ -66,7 +66,7 @@ pipeline {
                     docker exec 4721960k-web-server /bin/bash -c "service apache2 start"
                   """
 
-                  def ipaddr = sh(script: "docker exec 4721960k-web-server hostname -i",returnStatus: true)
+                  def ipaddr = sh(script: "docker exec 4721960k-web-server hostname -i",returnStdout: true)
                 }
 		        echo "4721960K-S3: Web Server is setup and running"
                 echo "IP Address is ${ipaddr}"
