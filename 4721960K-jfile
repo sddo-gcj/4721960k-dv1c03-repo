@@ -2,6 +2,7 @@ pipeline {
 
     agent any
 
+    parameters {string(name: "IP_ADDR", defaultValue:'',description:''}
     tools { 
         maven 'maven3' 
     }
@@ -67,9 +68,11 @@ pipeline {
                   """
 
                   def ipaddr = sh(script: "docker exec 4721960k-web-server hostname -i",returnStdout: true)
+
+                  params.IP_ADDR = ipaddr
                 }
 		        echo "4721960K-S3: Web Server is setup and running"
-                echo "IP Address is ${ipaddr}"
+                echo "IP Address is ${params.IP_ADDR}"
 		    }
         }
 
