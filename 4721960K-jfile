@@ -65,8 +65,11 @@ pipeline {
                     docker run -d -it -p 8080:32700 --name 4721960k-web-server 4721960k-temp-server-image /bin/sh -c "'Created';sleep infinity"
                     docker exec 4721960k-web-server /bin/bash -c "service apache2 start"
                   """
+
+                  def ipaddr = sh(script: "docker inspect 4721960k-web-server",returnStatus: true)
                 }
 		        echo "4721960K-S3: Web Server is setup and running"
+                echo "IP Address is ${ipaddr}"
 		    }
         }
 
