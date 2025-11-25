@@ -62,7 +62,7 @@ pipeline {
                        """
                   } 
                   sh """
-                    docker run -d -it -p 32700:80 --name 4721960k-web-server 4721960k-temp-server-image /bin/sh -c "'Created';sleep infinity"
+                    docker run -d -it -p 32700:80 --name 4721960k-web-server 4721960k-temp-server-image /bin/sh
                     docker exec 4721960k-web-server /bin/bash -c "service apache2 start"> /dev/null
                   """
                 }
